@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="searchable_description">Search for a movie</string>
+    <string name="searchable_label">Search</string>
+</resources>

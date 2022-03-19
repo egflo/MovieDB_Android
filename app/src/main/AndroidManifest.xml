@@ -2,18 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.app.moviedb_android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/Theme.MovieDB_Android">
+            android:theme="@style/Theme.MovieDB_Android"
+            android:usesCleartextTraffic="true">
         <activity
-                android:name=".MainActivity"
+                android:name=".MovieActivity"
                 android:exported="true"
-                android:label="@string/title_activity_main"/>
-
+                android:label="@string/title_activity_movie"
+                android:theme="@style/Theme.MovieDB_Android.NoActionBar"/>
+        <activity
+                android:name=".MainActivity2"
+                android:exported="true"
+                android:label="@string/title_activity_main2"
+                android:theme="@style/Theme.MovieDB_Android.NoActionBar"/>
         <meta-data
                 android:name="com.google.android.actions"
                 android:resource="@xml/searchable"/>
@@ -29,21 +38,18 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".ui.main.MainActivity"
-                android:exported="true"
-        >
+                android:name=".MainActivity"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
-
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
                 android:name=".ui.search.SearchActivity"
-                android:exported="true"
-        >
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
             </intent-filter>
@@ -53,6 +59,5 @@
                     android:resource="@xml/searchable"/>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
 </manifest>

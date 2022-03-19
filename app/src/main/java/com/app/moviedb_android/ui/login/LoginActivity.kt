@@ -14,11 +14,10 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.app.moviedb_android.MainActivity
 import com.app.moviedb_android.R
 import com.app.moviedb_android.databinding.ActivityLoginBinding
-import com.app.moviedb_android.ui.main.MainActivity
 import com.app.moviedb_android.ui.search.LoggedInUserView
-import com.app.moviedb_android.ui.search.SearchActivity
 
 
 class LoginActivity : AppCompatActivity() {

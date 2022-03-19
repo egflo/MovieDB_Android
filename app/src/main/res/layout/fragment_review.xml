@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="195dp"
+              android:orientation="vertical">
+
+    <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/rating"
+            android:rating="3.5"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:isIndicator="true"
+            android:progressTint="#FFD700"
+            android:secondaryProgressTint="@android:color/transparent"
+            android:backgroundTint="@color/grey"
+            style="@style/Widget.AppCompat.RatingBar.Indicator" />
+
+    <TextView
+            android:id="@+id/title"
+            android:text="Test"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:ellipsize="end"
+            android:lines="1"
+    />
+
+    <TextView
+            android:id="@+id/author"
+            android:text="By: Test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+    />
+
+    <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:textSize="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:ellipsize="end"
+            android:lines="5"
+    />
+
+</LinearLayout>

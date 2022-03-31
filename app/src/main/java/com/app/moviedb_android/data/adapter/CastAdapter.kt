@@ -45,7 +45,7 @@ class CastAdapter(private val context: Context, private val cards: ArrayList<Cas
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
 
         // inflate the layout for each list row'
-        var view = inflater.inflate(R.layout.fragment_cast, parent, false)
+        var view = inflater.inflate(R.layout.cast_item, parent, false)
 
         // get current item to be displayed
         val currentItem = getItem(position) as Cast
@@ -69,6 +69,8 @@ class CastAdapter(private val context: Context, private val cards: ArrayList<Cas
             .load(currentItem?.photo)
             .placeholder(com.app.moviedb_android.R.drawable.person)
             .error(com.app.moviedb_android.R.drawable.person)
+            .resize(2048, 1600)
+            .onlyScaleDown() // the image will only be resized if it's bigger than 2048x 1600 pixels.
             .into(imageView)
 
         // returns the view for the current row

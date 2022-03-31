@@ -18,11 +18,25 @@
     >
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
                 android:orientation="vertical"
                 android:id="@+id/information_layout"
         >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="IN STOCK"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/status_pill"
+                    android:id="@+id/status"/>
 
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/listGenre"
@@ -37,22 +51,156 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:text="This test test test"
+                    android:layout_marginBottom="16dp"
                     android:id="@+id/plot"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/rating_layout"
+            >
+                <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="2dp"
+                        android:src="@drawable/imdb"
+                        android:id="@+id/imdb_icon"
+                />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                >
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:text="N/A"
+                            android:id="@+id/imdb_rating"
+                    />
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="10sp"
+                            android:text="/10"
+                            android:layout_marginRight="10dp"
+
+                    />
+                </LinearLayout>
+
+
+                <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/metacritic"
+                        android:id="@+id/metacritic_icon"
+                        android:layout_marginRight="2dp"
+                 />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:text="N/A"
+                        android:layout_marginRight="10dp"
+                        android:id="@+id/metacritic_rating"
+                />
+
+                <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/rotten_fresh"
+                        android:id="@+id/rotten_tomatoes_icon"
+                        android:layout_marginRight="2dp"
+                        android:visibility="invisible"
+                />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:text="N/A"
+                        android:layout_marginRight="10dp"
+                        android:id="@+id/rotten_tomatoes_rating"
+                        android:visibility="invisible"
+                />
+
+                <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/rotten_upright"
+                        android:id="@+id/rotten_tomatoes_audience_icon"
+                        android:layout_marginRight="2dp"
+                        android:visibility="invisible"
+                />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:text="N/A"
+                        android:id="@+id/rotten_tomatoes_audience_score"
+                        android:visibility="invisible"
+                />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <Button
+                        android:id="@+id/expand"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:layout_margin="0dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="Show Details"
+                        android:textSize="15sp"
+                        android:textStyle=""
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/purple_500"
+                        app:cornerRadius="0dp"
+                />
+
+            <TextView
+                    android:id="@+id/details"
+                    android:text="Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy Dummy dummy "
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:visibility="invisible"
+            />
 
         </LinearLayout>
 
-
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"/>
 
         <TextView
-                android:text="Cast"
+                android:text="Cast &amp; Crew"
                 android:background="@drawable/rectangle"
                 android:textColor="@color/white"
+                android:textSize="15sp"
                 android:layout_height="30dp"
                 android:gravity="center"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
         />
+
 
         <com.app.moviedb_android.NonScrollListView
                 android:id="@+id/listCast"
@@ -68,6 +216,8 @@
                 android:background="@drawable/rectangle"
                 android:textColor="@color/white"
                 android:layout_height="30dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:layout_width="match_parent"
         />

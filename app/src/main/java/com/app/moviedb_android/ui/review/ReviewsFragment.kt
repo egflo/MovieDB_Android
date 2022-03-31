@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.moviedb_android.RetrofitClient
 import com.app.moviedb_android.data.adapter.ReviewAdapter
+import com.app.moviedb_android.data.model.Bookmark
 import com.app.moviedb_android.data.model.Page
 import com.app.moviedb_android.data.model.Review
 import com.app.moviedb_android.databinding.FragmentReviewsBinding
@@ -64,22 +65,22 @@ class ReviewsFragment : Fragment() {
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recycleView.layoutManager = layoutManager
 
-        var callback: Call<Page> = RetrofitClient.getClient().getReviewMovie(id.toString())
-        callback.enqueue(object : Callback<Page> {
-            override fun onFailure(call: Call<Page>, t: Throwable) {
+        var callback: Call<Page<Review>> = RetrofitClient.getClient().getReviewMovie(id.toString())
+        callback.enqueue(object : Callback<Page<Review>> {
+            override fun onFailure(call: Call<Page<Review>>, t: Throwable) {
                 Log.d("ReviewFragments", "onFailure: " + t.message)
             }
 
-            override fun onResponse(call: Call<Page>, response: Response<Page>) {
+            override fun onResponse(call: Call<Page<Review>>, response: Response<Page<Review>>) {
                 if (response.isSuccessful) {
                     val page = response.body()
                     val content = page?.content
 
 
-                    val convert = Gson().fromJson(content, Array<Review>::class.java)
+                   // val convert = Gson().fromJson(content, Array<Review>::class.java)
 
-                    if(convert.isNotEmpty()) {
-                        val list = convert.toList() as ArrayList<Review>
+                    if(content!!.isNotEmpty()) {
+                        val list = content as ArrayList<Review>
                         //Create adapter passing the data
                         val adapter = activity?.let { ReviewAdapter(it,list) }
                         //Attach the adapter to the recyclerview to populate items

@@ -3,8 +3,8 @@ package com.app.moviedb_android.data.model
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 
-data class Page(
-    val content: JsonArray,
+data class Page<T>(
+    val content: List<T>,
     val pageable: Pageable,
     val totalPages: Long,
     val totalElements: Long,

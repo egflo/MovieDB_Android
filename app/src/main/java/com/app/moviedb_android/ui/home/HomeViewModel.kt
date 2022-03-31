@@ -6,6 +6,10 @@ import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
 
+    override fun onCleared() {
+        super.onCleared()
+    }
+
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"
     }

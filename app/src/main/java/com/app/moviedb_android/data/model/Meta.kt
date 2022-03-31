@@ -7,11 +7,13 @@ data class Meta(
 
     val customerId: Long = 0,
 
-    val movieId: String = "",
+    val created: Long = 0,
 
-    val created: Long = System.currentTimeMillis(),
+    val movieId: String = "",
 
     val votes: Int = 0,
 
-    val movie: Movie,
+    val sales: Int = 0,
+
+    val movie: MovieSimple,
 )

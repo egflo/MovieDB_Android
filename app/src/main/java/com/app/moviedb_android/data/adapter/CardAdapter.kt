@@ -12,10 +12,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.app.moviedb_android.MovieActivity
 import com.app.moviedb_android.R
+import com.app.moviedb_android.data.model.Bookmark
 import com.app.moviedb_android.data.model.Meta
 import com.app.moviedb_android.ui.card.CardFragment
 import com.squareup.picasso.Picasso
 import inflate
+import java.util.Objects
 
 
 class CardAdapter(private val context:Context, private val cards: ArrayList<Meta>): RecyclerView.Adapter<CardAdapter.CardHolder>() {
@@ -40,7 +42,6 @@ class CardAdapter(private val context:Context, private val cards: ArrayList<Meta
 
 
      inner class CardHolder(view: View): RecyclerView.ViewHolder(view) {
-        private var meta: Meta? = null
         private var ID: String = ""
 
         var textView: TextView= view.findViewById(R.id.text)
@@ -59,7 +60,6 @@ class CardAdapter(private val context:Context, private val cards: ArrayList<Meta
         }
 
         fun bind(item: Meta) {
-            meta = item
             val movie = item.movie
             ID = movie.id
 
@@ -75,6 +75,8 @@ class CardAdapter(private val context:Context, private val cards: ArrayList<Meta
                 .load(movie.background)
                 .placeholder(R.drawable.background)
                 .error(R.drawable.background)
+                .resize(2048, 1600)
+                .onlyScaleDown() // the image will only be resized if it's bigger than 2048x 1600 pixels.
                 .into(imageView)
 
             //val cardFragment = CardFragment.newInstance(item.movieId)

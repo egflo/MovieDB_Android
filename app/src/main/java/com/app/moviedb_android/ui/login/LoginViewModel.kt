@@ -8,9 +8,6 @@ import com.app.moviedb_android.data.LoginRepository
 import com.app.moviedb_android.data.Result
 
 import com.app.moviedb_android.R
-import com.app.moviedb_android.ui.search.LoggedInUserView
-import com.app.moviedb_android.ui.search.LoginFormState
-import com.app.moviedb_android.ui.search.LoginResult
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 

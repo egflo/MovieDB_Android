@@ -13,13 +13,25 @@
 
     <fragment
             android:id="@+id/navigation_dashboard"
-            android:name="com.app.moviedb_android.ui.dashboard.DashboardFragment"
+            android:name="com.app.moviedb_android.ui.sales.SalesFragment"
             android:label="@string/title_dashboard"
             tools:layout="@layout/fragment_dashboard"/>
 
     <fragment
-            android:id="@+id/navigation_notifications"
-            android:name="com.app.moviedb_android.ui.notifications.NotificationsFragment"
-            android:label="@string/title_notifications"
-            tools:layout="@layout/fragment_notifications"/>
+            android:id="@+id/navigation_sales"
+            android:name="com.app.moviedb_android.ui.sales.SalesFragment"
+            android:label="@string/title_sales"
+            tools:layout="@layout/fragment_dashboard"/>
+
+    <fragment
+            android:id="@+id/navigation_search"
+            android:name="com.app.moviedb_android.ui.search.SearchFragment"
+            android:label="@string/title_search"
+            tools:layout="@layout/fragment_search"/>
+
+    <fragment
+            android:id="@+id/navigation_cart"
+            android:name="com.app.moviedb_android.ui.cart.CartFragment"
+            android:label="@string/title_cart"
+            tools:layout="@layout/fragment_cart"/>
 </navigation>

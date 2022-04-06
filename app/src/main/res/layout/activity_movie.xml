@@ -9,11 +9,19 @@
         tools:context=".MovieActivity"
     >
 
+    <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/progressBar"
+            android:layout_alignParentBottom="true"/>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-    >
+            android:visibility="invisible"
+            android:id="@+id/coordinatorLayout">
 
         <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/app_bar"

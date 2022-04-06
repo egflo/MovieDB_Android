@@ -65,8 +65,10 @@ class CastAdapter(private val context: Context, private val cards: ArrayList<Cas
         else {
             character.text = ""
         }
+
+        val photo_path = if (currentItem.photo == null || currentItem.photo == "")  "empty"  else currentItem.photo
         Picasso.get()
-            .load(currentItem?.photo)
+            .load(photo_path)
             .placeholder(com.app.moviedb_android.R.drawable.person)
             .error(com.app.moviedb_android.R.drawable.person)
             .resize(2048, 1600)

@@ -84,17 +84,19 @@ class MovieActivity : AppCompatActivity() {
 
                     if (content != null) {
                         Snackbar.make(view, content.message, Snackbar.LENGTH_LONG).show()
-                    }
-                    else {
+                    } else {
                         Snackbar.make(view, "Failed to add to cart", Snackbar.LENGTH_LONG).show()
                     }
                 }
             })
         }
 
-        var expand = binding.layout.expand
+        var progressBar = binding.progressBar
+        var cordinatorLayout = binding.coordinatorLayout
 
+        var expand = binding.layout.expand
         var details = binding.layout!!.details
+
         val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
         params.setMargins(0, 0, 0, 0)
         details!!.layoutParams = params
@@ -307,6 +309,9 @@ class MovieActivity : AppCompatActivity() {
                         recycleView.adapter = adapter
 
                     }
+
+                    progressBar.visibility = View.GONE
+                    cordinatorLayout.visibility = View.VISIBLE
 
                 }
                 else {

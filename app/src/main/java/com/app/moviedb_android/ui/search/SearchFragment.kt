@@ -7,6 +7,7 @@ import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asFlow
@@ -15,6 +16,12 @@ import com.app.moviedb_android.R
 import com.app.moviedb_android.data.adapter.MovieAdapter
 import com.app.moviedb_android.databinding.FragmentNotificationsBinding
 import com.app.moviedb_android.databinding.FragmentSearchBinding
+import com.app.moviedb_android.ui.cards.CardsFragment
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayout
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -49,8 +56,14 @@ class SearchFragment : Fragment() {
         val adapter = MovieAdapter()
 
         reyclerView.apply {
-            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this.context)
-            setHasFixedSize(true)
+            //layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this.context, androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL, false)
+            //setHasFixedSize(true)
+            var layoutManager = FlexboxLayoutManager(this.context)
+            layoutManager.flexDirection = FlexDirection.ROW
+            layoutManager.flexWrap = FlexWrap.WRAP
+            layoutManager.justifyContent = JustifyContent.SPACE_EVENLY
+
+            reyclerView.layoutManager = layoutManager
             this.adapter = adapter
         }
 
@@ -60,6 +73,15 @@ class SearchFragment : Fragment() {
                 adapter.submitData(movies)
             }
 
+        }
+
+        if (savedInstanceState == null) {
+            parentFragmentManager.commit {
+                setReorderingAllowed(true)
+                add(R.id.fragment_container_rated, CardsFragment().newInstance(true))
+
+                add(R.id.fragment_container_sellers, CardsFragment().newInstance(false))
+            }
         }
         return root
     }

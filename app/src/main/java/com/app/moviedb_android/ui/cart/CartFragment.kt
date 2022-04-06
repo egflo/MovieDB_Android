@@ -51,7 +51,7 @@ class CartFragment: Fragment() {
         for (i in list) {
             subtotal += i.movie!!.price.toDouble()
         }
-        return NumberFormat.getCurrencyInstance(Locale("es", "US")).format(subtotal)
+        return "Subtotal: " + NumberFormat.getCurrencyInstance(Locale("es", "US")).format(subtotal)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,6 +60,8 @@ class CartFragment: Fragment() {
 
         Log.d("CartFragment", "onViewCreated")
 
+        val progressBar = binding.progressBar
+        val layoutView = binding.linearLayout
         val listView = binding.listView
         val adapter = CartAdapter(thiscontext!!,list)
         listView.adapter = adapter
@@ -87,6 +89,10 @@ class CartFragment: Fragment() {
 
                     // Attach the adapter to a ListView
                     binding.listView.adapter = adapter
+
+
+                    progressBar.visibility = View.GONE
+                    layoutView.visibility = View.VISIBLE
 
                 } else {
                     Log.d("CartFragment", "onResponse: " + response.errorBody())

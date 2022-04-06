@@ -119,4 +119,17 @@
     <string name="title_cart">Cart</string>
     <string name="cart_title">My Cart</string>
     <string name="cart_checkout">Checkout</string>
+    <string name="account_title">Account</string>
+    <string name="address_title">Address</string>
+    <string name="logout">Logout</string>
+    <string name="account_name">Name</string>
+    <string name="account_email">Email</string>
+    <string name="account_password">Password</string>
+    <string name="account_primary_address">Primary Address</string>
+    <string name="action_save">Save Changes</string>
+    <string name="prompt_firstname">First name</string>
+    <string name="prompt_lastname">Last name</string>
+    <string name="invalid_first_name">Not a valid first name</string>
+    <string name="invalid_last_name">Not a valid last name</string>
+    <string name="prompt_confirm_email">Confirm Email</string>
 </resources>

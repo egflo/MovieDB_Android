@@ -15,19 +15,24 @@ open class SalesPagingDataSource(private val service: RetrofitClient) : PagingSo
     override val keyReuseSupported: Boolean = true
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Sale> {
-        val pageNumber = params.key ?: STARTING_PAGE_INDEX
         return try {
-            Log.d("load", "pageNumber: $pageNumber")
+            val pageNumber = params.key ?: STARTING_PAGE_INDEX
+
             val response = service.getSales(pageNumber).awaitResponse()
-            val data = response.body()!!.content
+            val body = response.body()!!
+
+            Log.d("SalesPagingDataSource", "load: ${body.pageable.pageNumber}")
+            val data = body.content
 
             val nextKey =
                 if (data.isEmpty()) null
-                else pageNumber + (params.loadSize / NETWORK_PAGE_SIZE)
+                else pageNumber + 1//(params.loadSize / NETWORK_PAGE_SIZE)
+
 
             LoadResult.Page(
                 data = data,
-                prevKey = if(pageNumber == STARTING_PAGE_INDEX) null else pageNumber,
+                prevKey = if (pageNumber > 0) pageNumber - 1 else null,
+                //prevKey = if(pageNumber == STARTING_PAGE_INDEX) null else pageNumber,
                 nextKey = nextKey
             )
         } catch (e: Exception) {

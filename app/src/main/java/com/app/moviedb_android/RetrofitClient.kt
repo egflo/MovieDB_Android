@@ -22,7 +22,7 @@ import retrofit2.http.Query
 interface RetrofitClient {
 
     @GET("movie/title/{title}")
-    fun getMoviesByTitle(@Path("title") title: String, @Query("page") currentPage: Int): Call<Page<Movie>>
+    fun getMoviesByTitle(@Path("title") title: String, @Query("page") currentPage: Int, @Query("limit") limit: Int): Call<Page<Movie>>
 
     @GET("bookmark/all")
     fun getBookmarks(): Call<Page<Bookmark>>
@@ -59,6 +59,9 @@ interface RetrofitClient {
 
     @DELETE("cart/{id}")
     fun deleteCart(@Path("id") id:Int): Call<CartResponse>
+
+    @GET("customer/")
+    fun getCustomer(): Call<Customer>
 
     companion object {
         const val BASE_URL = "http://10.81.1.104:8080/"

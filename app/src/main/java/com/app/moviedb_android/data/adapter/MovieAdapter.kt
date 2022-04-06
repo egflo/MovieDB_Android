@@ -53,7 +53,8 @@ class MovieAdapter :
             ID = movie.id
 
             textView.text = movie.title
-            textView2.text = movie.year.toString() + " - " + movie.rated + " - " + movie.runtime + " min"
+            textView2.text = movie.year.toString()
+            //textView2.text = movie.year.toString() + " - " + movie.rated + " - " + movie.runtime + " min"
             Picasso.get()
                 .load(movie.poster)
                 .placeholder(R.drawable.background)

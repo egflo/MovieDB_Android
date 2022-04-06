@@ -5,14 +5,17 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar_actionbar"
         tools:context=".ui.sales.SalesFragment"
         android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:visibility="visible"
             android:id="@+id/listView"
+            android:layout_below="@+id/toolbar_actionbar"
+            android:layout_marginBottom="?attr/actionBarSize"
             android:layout_gravity="center_horizontal" >
         >
 

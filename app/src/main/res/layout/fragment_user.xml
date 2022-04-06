@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.user.UserFragment"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+>
+
+    <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/progressBar"
+            android:layout_alignParentBottom="true"/>
+
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        android:id = "@+id/user_info_container"
+        >
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/account_title"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:gravity="left"
+                android:textStyle="bold" />
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:weightSum="1"
+                android:padding="@dimen/activity_horizontal_margin"
+        >
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1.02"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id = "@+id/user_name_container"
+            >
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray"
+                        android:text="@string/account_name"
+                        android:gravity="left"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Test Test"
+                        android:textSize="15sp"
+                        android:textColor="#000000"
+                        android:gravity="left"
+                        android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_arrow_forward_24_24dp"
+                    android:scaleType="fitXY" />
+            />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:weightSum="1"
+                android:padding="@dimen/activity_horizontal_margin"
+        >
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1.02"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id = "@+id/user_email_container"
+            >
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray"
+                        android:text="@string/account_email"
+                        android:gravity="left"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Test@email.com"
+                        android:textSize="15sp"
+                        android:textColor="#000000"
+                        android:gravity="left"
+                        android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_arrow_forward_24_24dp"
+                    android:scaleType="fitXY" />
+            />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:weightSum="1"
+                android:padding="@dimen/activity_horizontal_margin"
+        >
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1.02"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+            >
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray"
+                        android:text="@string/account_password"
+                        android:gravity="left"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="*********"
+                        android:textSize="15sp"
+                        android:textColor="#000000"
+                        android:gravity="left"
+                        android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_arrow_forward_24_24dp"
+                    android:scaleType="fitXY" />
+            />
+
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/address_title"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:gravity="left"
+                android:textStyle="bold" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:weightSum="1"
+                android:padding="@dimen/activity_horizontal_margin"
+        >
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1.02"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+            >
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray"
+                        android:text="@string/account_primary_address"
+                        android:gravity="left"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No address selected"
+                        android:textSize="15sp"
+                        android:textColor="#000000"
+                        android:gravity="left"
+                        android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_arrow_forward_24_24dp"
+                    android:scaleType="fitXY" />
+            />
+
+
+        </LinearLayout>
+
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/logout"
+                android:textSize="15sp"
+                android:backgroundTint="@color/red"></Button>
+
+    </LinearLayout>
+
+
+</LinearLayout>

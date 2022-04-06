@@ -9,6 +9,7 @@ import retrofit2.awaitResponse
 import retrofit2.http.Query
 
 private const val STARTING_PAGE_INDEX = 0
+private const val PAGE_SIZE = 20
 
 open class MoviesPagingDataSource(private val service: RetrofitClient, private val query: String) : PagingSource<Int, Movie>() {
     override val keyReuseSupported: Boolean = true
@@ -17,12 +18,12 @@ open class MoviesPagingDataSource(private val service: RetrofitClient, private v
         val pageNumber = params.key ?: STARTING_PAGE_INDEX
         return try {
             Log.d("load", "pageNumber: $pageNumber")
-            val response = service.getMoviesByTitle(query, pageNumber).awaitResponse()
+            val response = service.getMoviesByTitle(query, pageNumber, PAGE_SIZE).awaitResponse()
             val data = response.body()!!.content
 
             val nextKey =
                 if (data.isEmpty()) null
-                else pageNumber + (params.loadSize / NETWORK_PAGE_SIZE)
+                else pageNumber + 1
 
             LoadResult.Page(
                 data = data,
